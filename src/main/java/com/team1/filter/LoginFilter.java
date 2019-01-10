@@ -30,7 +30,7 @@ import com.team1.entity.User;
  * Created time: 8:48:56 AM
  * Description: TODO - 
  */
-@WebFilter(filterName = "sessionFilter", urlPatterns = "/*")
+@WebFilter(filterName = "sessionFilter", urlPatterns = "*")
 public class LoginFilter implements Filter {
 
   /* (non-Javadoc)
@@ -68,7 +68,7 @@ public class LoginFilter implements Filter {
       chain.doFilter(req, res);
       return;
     }
-//    System.out.println(user.getUsername());
+    System.out.println(user.getUsername());
     chain.doFilter(req, res);
   }
 

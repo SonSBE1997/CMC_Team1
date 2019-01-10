@@ -22,6 +22,11 @@ public class UserController {
   @Autowired
   UserValidator userValidator;
 
+  @GetMapping("/")
+  public String home() {
+    return "home";
+  }
+
   @GetMapping(value = "list-user")
   public String getAllUser(ModelMap map) {
     List<User> users = userService.fillAll();
