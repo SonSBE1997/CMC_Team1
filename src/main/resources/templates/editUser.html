@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <title>Insert title here</title>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css" />
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<style type="text/css">
+.container1 {
+	width: 300px;
+	height: auto;
+	display: block;
+	margin: 20px 200px auto 580px;
+}
+</style>
 </head>
 <body>
-<form th:action="@{/edit-user}" method="post" th:object="${user}">
-<input type="hidden" th:field="*{id}"/>
-UserName:<input type="text" th:field="*{username}"/><br/>
-Password:<input type="text" th:field="*{password}"/>
-<input type="submit" value="Submit"/>
-</form>
+	<div class="container1">
+		<form th:action="@{/edit-user}" method="post" th:object="${user}">
+		<input type="hidden" th:field="*{id}"/>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Username</label> <input
+					class="form-control" type="text" th:field="*{username}"
+					placeholder="Username" />
+				<p style="color: red">
+					<span th:if="${#fields.hasErrors('username')}"
+						th:errors="*{username}">..</span>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Password</label> <input
+					class="form-control" type="text" th:field="*{password}"
+					placeholder="Passsword" />
+				<p style="color: red">
+					<span th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}">..</span>
+				</p>
+			</div>
+			<input type="submit" value="Submit" class="btn btn-primary" />
+		</form>
+	</div>
 </body>
 </html>

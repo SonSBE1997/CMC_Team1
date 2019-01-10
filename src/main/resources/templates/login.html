@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css" />
@@ -25,27 +32,24 @@
 </head>
 <body>
 	<div class="container1">
-		<form th:action="@{/add-user}" method="post" th:object="${user}">
+		<form th:action="@{/login}" method="post" th:object="${user}">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Username</label> <input
 					class="form-control" type="text" th:field="*{username}"
 					placeholder="Username" />
-				<p style="color: red">
-					<span th:if="${#fields.hasErrors('username')}"
-						th:errors="*{username}">..</span>
-				</p>
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Password</label> <input
 					class="form-control" type="text" th:field="*{password}"
 					placeholder="Passsword" />
-				<p style="color: red">
-					<span th:if="${#fields.hasErrors('password')}"
-						th:errors="*{password}">..</span>
-				</p>
 			</div>
 			<input type="submit" value="Submit" class="btn btn-primary" />
+			<div style="color: red; margin-top: 10px;" th:text="${mess}"></div>
 		</form>
 	</div>
+</body>
+</html>
+
+
 </body>
 </html>

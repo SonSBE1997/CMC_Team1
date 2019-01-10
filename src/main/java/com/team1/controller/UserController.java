@@ -26,6 +26,7 @@ public class UserController {
   public String getAllUser(ModelMap map) {
     List<User> users = userService.fillAll();
     map.addAttribute("list", users);
+//    session.removeAttribute("userLogin");
     return "listUser";
 
   }
